@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter var', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+  }
+
+  .price-tag {
+    @apply flex items-center space-x-2 text-lg font-medium;
+  }
+
+  .price-fiat {
+    @apply text-gray-900;
+  }
+
+  .price-crypto {
+    @apply text-green-600 text-sm;
+  }
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  /* Base background patterns */
+  .bg-grid-slate-100 {
+    background-image: linear-gradient(to right, #f1f5f9 1px, transparent 1px),
+                      linear-gradient(to bottom, #f1f5f9 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .bg-gradient-radial-to-tr {
+    background-image: radial-gradient(circle at top right, var(--tw-gradient-stops));
+  }
+
+  /* 3D Background Patterns */
+  .bg-3d-gradient {
+    background: 
+      linear-gradient(125deg, rgba(99,102,241,0.1) 0%, rgba(99,102,241,0.05) 100%),
+      radial-gradient(circle at 50% 0%, rgba(99,102,241,0.15) 0%, rgba(99,102,241,0) 75%);
+    background-blend-mode: overlay;
+  }
+
+  .bg-3d-mesh {
+    background: 
+      linear-gradient(90deg, rgba(99,102,241,0.1) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(99,102,241,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: center center;
+  }
+
+  .bg-3d-dots {
+    background-image: 
+      radial-gradient(rgba(99,102,241,0.2) 1px, transparent 1px),
+      radial-gradient(rgba(99,102,241,0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 10px;
+  }
+
+  .bg-3d-waves {
+    background: linear-gradient(
+      45deg,
+      rgba(99,102,241,0.15) 25%,
+      transparent 25%,
+      transparent 75%,
+      rgba(99,102,241,0.15) 75%
+    );
+    background-size: 30px 30px;
+    animation: wave-animation 60s linear infinite;
+  }
+
+  .bg-3d-finance {
+    background: 
+      linear-gradient(120deg, rgba(99,102,241,0.2) 0%, rgba(99,102,241,0.05) 50%),
+      repeating-linear-gradient(45deg, rgba(99,102,241,0.1) 0%, rgba(99,102,241,0.1) 5%, transparent 5%, transparent 10%);
+    background-size: 100% 100%, 20px 20px;
+    animation: finance-flow 30s linear infinite;
+  }
+
+  .bg-3d-marketplace {
+    background: 
+      radial-gradient(circle at 50% 50%, rgba(99,102,241,0.2) 0%, transparent 50%),
+      linear-gradient(90deg, rgba(99,102,241,0.1) 1px, transparent 1px),
+      linear-gradient(0deg, rgba(99,102,241,0.1) 1px, transparent 1px);
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+    animation: marketplace-pulse 20s ease-in-out infinite;
+  }
+
+  .bg-3d-shipping {
+    background: 
+      linear-gradient(60deg, rgba(99,102,241,0.15) 25%, transparent 25%, transparent 75%, rgba(99,102,241,0.15) 75%),
+      linear-gradient(120deg, rgba(99,102,241,0.15) 25%, transparent 25%, transparent 75%, rgba(99,102,241,0.15) 75%);
+    background-size: 40px 40px;
+    animation: shipping-move 40s linear infinite;
+  }
+
+  .bg-3d-wallet {
+    background: 
+      radial-gradient(circle at 0% 0%, rgba(99,102,241,0.2) 0%, transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(99,102,241,0.2) 0%, transparent 50%),
+      linear-gradient(45deg, rgba(99,102,241,0.1) 25%, transparent 25%, transparent 75%, rgba(99,102,241,0.1) 75%);
+    background-size: 100% 100%, 100% 100%, 20px 20px;
+    animation: wallet-glow 15s ease-in-out infinite;
+  }
+
+  /* Background overlays */
+  .bg-overlay-light {
+    background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.7));
+  }
+
+  .bg-overlay-dark {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.05));
+  }
+}
+
+@keyframes wave-animation {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 60px 60px;
+  }
+}
+
+@keyframes finance-flow {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 100% 100%, 40px 40px;
+  }
+}
+
+@keyframes marketplace-pulse {
+  0%, 100% {
+    background-size: 100% 100%, 20px 20px, 20px 20px;
+  }
+  50% {
+    background-size: 120% 120%, 25px 25px, 25px 25px;
+  }
+}
+
+@keyframes shipping-move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 80px 80px;
+  }
+}
+
+@keyframes wallet-glow {
+  0%, 100% {
+    background-position: 0 0, 100% 100%, 0 0;
+  }
+  50% {
+    background-position: 50% 50%, 50% 50%, 20px 20px;
+  }
+}
